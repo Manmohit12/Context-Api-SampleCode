@@ -3,11 +3,12 @@ import UserContext from '../context/UserContext'
 const Login = () => {
     const [username,setUsername]=useState('')
     const [password,setPassword]=useState('')
+    const [userId,setUserId]=useState('')
     
     const {setUser}=useContext(UserContext)
     const handleSubmit=(e)=> {
         e.preventDefault()
-        setUser({username,password})
+        setUser({username,password,userId})
     }
   return (
     <div>
@@ -15,6 +16,7 @@ const Login = () => {
         <input type="text" value={username} onChange={(e)=>{setUsername(e.target.value)}} placeholder='Username'/>
         {" "}
           <input type="text" value={password} onChange={(e) => { setPassword(e.target.value) }} placeholder='password'/>
+      {" "}    <input type="text" value={userId} onChange={(e) => { setUserId(e.target.value) }} placeholder='your id'/>
         <button onClick={handleSubmit}>Submit</button>
     </div>
   )
